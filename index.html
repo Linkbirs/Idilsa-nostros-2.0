@@ -4,331 +4,340 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>IDILSA - Innovación en Lubricación</title>
+
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        color: #003366; /* Azul rey */
-        background-color: #ffffff;
-        text-align: center;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        min-height: 100vh;
-    }
 
-    .container {
-        width: 100%;
-        max-width: 100%;
-        padding: 0;
-    }
+body{
+font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+color:#003366;
+background-color:#ffffff;
+text-align:center;
+overflow-x:hidden;
+display:flex;
+flex-direction:column;
+min-height:100vh;
+}
 
-    /* Encabezado */
-    .header {
-        background-color: #003366;
-        padding: 40px 10px;
-        color: white;
-        animation: fadeIn 1s ease-in;
-    }
+.container{
+width:100%;
+max-width:100%;
+}
 
-    .header h1 {
-        font-size: 2em;
-        margin: 10px 0;
-    }
+/* HEADER */
 
-    .logo {
-        width: 50%;
-        animation: pulse 1s infinite alternate;
-    }
+.header{
+background:#003366;
+padding:40px 10px;
+color:white;
+}
 
-    /* Sección Principal */
-    .main-section {
-        background: #f0f0f0;
-        padding: 50px 10px;
-        animation: slideIn 1s ease-in-out;
-    }
+.logo{
+width:50%;
+animation:pulse 1s infinite alternate;
+}
 
-    .main-section h2 {
-        font-size: 2em;
-        color: #003366;
-        margin: 0;
-    }
+/* MAIN */
 
-    /* Historia */
-    .history-section {
-        background-color: #003366;
-        color: white;
-        padding: 50px 10px;
-        animation: slideIn 1s ease-in-out;
-    }
+.main-section{
+background:#f0f0f0;
+padding:50px 10px;
+}
 
-    .timeline {
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
+.main-section h2{
+color:#003366;
+}
 
-    .timeline .year {
-        background-color: #00509E;
-        padding: 10px 20px;
-        border-radius: 50%;
-        color: white;
-        font-size: 1.5em;
-        font-weight: bold;
-    }
+/* HISTORIA */
 
-    .history-text {
-        font-size: 1.2em;
-        margin-top: 20px;
-        line-height: 1.6;
-    }
+.history-section{
+background:#003366;
+color:white;
+padding:50px 10px;
+}
 
-    /* Servicios */
-    .services-section {
-        padding: 50px 10px;
-        background-color: #f0f0f0;
-        animation: fadeIn 2s ease-in-out;
-    }
+.timeline{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+margin-top:30px;
+}
 
-    .service-cards {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        flex-wrap: wrap;
-    }
+.year{
+background:#00509E;
+padding:10px 20px;
+border-radius:50%;
+color:white;
+font-size:1.5em;
+font-weight:bold;
+}
 
-    .service-card {
-        background: #ffffff;
-        width: 250px;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        text-align: center;
-        transition: transform 0.3s;
-        margin-bottom: 20px;
-    }
+.history-text{
+font-size:1.2em;
+margin-top:20px;
+line-height:1.6;
+}
 
-    .service-card:hover {
-        transform: scale(1.05);
-    }
+/* SERVICIOS */
 
-    .service-card img {
-        width: 100%;
-        border-radius: 8px;
-        margin-bottom: 20px;
-    }
+.services-section{
+padding:50px 10px;
+background:#f0f0f0;
+}
 
-    /* Reconocimientos */
-    .recognitions-section {
-        padding: 40px 0;
-        background-color: #003366;
-        color: white;
-    }
+.service-cards{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
 
-    .recognitions-gallery {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
+.service-card{
+background:white;
+width:260px;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+transition:0.3s;
+cursor:pointer;
+text-decoration:none;
+color:#003366;
+}
 
-    .recognition-card {
-        background: #f0f0f0;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        width: 250px;
-        text-align: center;
-        margin-bottom: 20px;
-        cursor: pointer;
-    }
+.service-card:hover{
+transform:scale(1.05);
+}
 
-    .recognition-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: contain;
-        border-radius: 8px;
-    }
+.service-card img{
+width:100%;
+border-radius:8px;
+margin-bottom:15px;
+}
 
-    /* Modal */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.8);
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-    }
+/* RECONOCIMIENTOS */
 
-    .modal img {
-        max-width: 100%;
-        max-height: 90%;
-        border-radius: 8px;
-        box-shadow: 0 0 15px rgba(0,0,0,0.4);
-    }
+.recognitions-section{
+padding:40px 10px;
+background:#003366;
+color:white;
+}
 
-    .modal-close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 2rem;
-        color: white;
-        cursor: pointer;
-    }
+.recognitions-gallery{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
 
-    /* Contacto */
-    .contact-section {
-        padding: 50px 10px;
-        background-color: #ffffff;
-        text-align: left;
-    }
+.recognition-card{
+background:#f0f0f0;
+padding:15px;
+border-radius:10px;
+width:250px;
+cursor:pointer;
+}
 
-    .contact-info {
-        font-size: 1.2em;
-        color: #003366;
-        margin-bottom: 20px;
-    }
+.recognition-card img{
+width:100%;
+height:200px;
+object-fit:contain;
+border-radius:8px;
+}
 
-    /* Animaciones */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
+/* MODAL */
 
-    @keyframes pulse {
-        from { transform: scale(1); }
-        to { transform: scale(1.05); }
-    }
+.modal{
+display:none;
+position:fixed;
+z-index:1000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
 
-    @keyframes slideIn {
-        from { transform: translateY(-20px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
+.modal img{
+max-width:95%;
+max-height:90%;
+border-radius:8px;
+}
+
+.modal-close{
+position:absolute;
+top:20px;
+right:20px;
+font-size:35px;
+color:white;
+cursor:pointer;
+}
+
+/* CONTACTO */
+
+.contact-section{
+padding:50px 10px;
+text-align:left;
+}
+
+.contact-info{
+font-size:1.2em;
+color:#003366;
+}
+
+/* ANIMACIONES */
+
+@keyframes pulse{
+from{transform:scale(1)}
+to{transform:scale(1.05)}
+}
 
 </style>
 </head>
+
 <body>
 
 <div class="container">
-    <!-- Encabezado -->
-    <div class="header">
-        <a href="https://www.idilsalubricacion.com/" target="_blank">
-            <img src="LogoIdilsa.jpeg" alt="Logo" class="logo">
-        </a>
-        <h1>CONTACTANOS</h1>
-    </div>
 
-    <div style="height: 50px;"></div>
-
-    <!-- Sección principal -->
-    <div class="main-section">
-        <h2>Comprometidos con la calidad y eficiencia</h2>
-        <p>En IDILSA, nos esforzamos cada día para ofrecer soluciones de lubricación que optimicen el rendimiento y la durabilidad de tus equipos. Nuestra misión es liderar la innovación en la industria, garantizando un servicio de calidad superior para cada uno de nuestros clientes.</p>
-    </div>
-
-    <!-- Historia -->
-    <div class="history-section">
-        <h2>Historia de IDILSA</h2>
-        <div class="timeline">
-            <div class="year">1998</div>
-            <div class="year">2005</div>
-            <div class="year">2010</div>
-            <div class="year">2020</div>
-        </div>
-        <div class="history-text">
-            <p><strong>1998:</strong> Fundación de IDILSA. Iniciamos con el objetivo de ofrecer soluciones innovadoras en sistemas de lubricación industrial.</p>
-            <p><strong>2005:</strong> Expansión al Bajío. Nuestra presencia en el Bajío marcó el comienzo de una expansión significativa a nivel nacional.</p>
-            <p><strong>2010:</strong> Incorporación de nueva tecnología en sistemas de lubricación. Introdujimos tecnología avanzada para mejorar la eficiencia y calidad en nuestros productos.</p>
-            <p><strong>2020:</strong> Premios de calidad. Recibimos varios premios nacionales e internacionales por la innovación y calidad de nuestros servicios.</p>
-        </div>
-    </div>
-
-    <!-- Servicios -->
-    <div class="services-section">
-        <h2>Servicios de IDILSA</h2>
-        <div class="service-cards">
-            <div class="service-card">
-                <img src="comercializadora.jpeg" alt="Comercializadora">
-                <h3>Comercializadora</h3>
-                <p>Distribuimos productos de alta calidad para diversas industrias.</p>
-                <a href="mailto:ventas@idilsa.com" class="cta-button">Contáctanos</a>
-            </div>
-            <div class="service-card">
-                <img src="maquinados.jpeg" alt="Maquinados">
-                <h3>Maquinados</h3>
-                <p>Diseño y fabricación de piezas precisas para tu maquinaria.</p>
-                <a href="mailto:ventas@idilsa.com" class="cta-button">Contáctanos</a>
-            </div>
-            <div class="service-card">
-                <img src="lubricacíon.jpeg" alt="Lubricación">
-                <h3>Lubricación</h3>
-                <p>Instalación y mantenimiento de sistemas de lubricación eficientes.</p>
-                <a href="mailto:ventas@idilsa.com" class="cta-button">Contáctanos</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Reconocimientos -->
-    <div class="recognitions-section">
-        <h2>Reconocimientos y Premios</h2>
-        <div class="recognitions-gallery">
-            <div class="recognition-card">
-                <img src="2020 (1).jpg" alt="Premio 1" class="modal-img">
-            </div>
-            <div class="recognition-card">
-                <img src="Captura-de-pantalla--964- (2).png" alt="Certificación" class="modal-img">
-            </div>
-        </div>
-    </div>
-
-    <!-- Contacto -->
-    <div class="contact-section">
-        <h2>Contacto</h2>
-        <div class="contact-info">
-            <p><strong>Oficina:</strong> 55-51144840</p>
-            <p><strong>Bajío:</strong> 47-26881722</p>
-            <p><strong>Correo:</strong> <a href="mailto:ventas@idilsa.com">ventas@idilsa.com</a>, <a href="mailto:ventasbajio@idilsa.com">ventasbajio@idilsa.com</a></p>
-            <p><strong>Dirección:</strong> Convento de San Agustin 6, Col Jardines de Santa Monica, Aguascalientes.</p>
-        </div>
-    </div>
+<div class="header">
+<a href="https://www.idilsalubricacion.com/" target="_blank">
+<img src="LogoIdilsa.jpeg" class="logo">
+</a>
+<h1>CONTACTANOS</h1>
 </div>
 
-<!-- Modal -->
+<div style="height:50px;"></div>
+
+<div class="main-section">
+<h2>Comprometidos con la calidad y eficiencia</h2>
+<p>En IDILSA, nos esforzamos cada día para ofrecer soluciones de lubricación que optimicen el rendimiento y la durabilidad de tus equipos. Nuestra misión es liderar la innovación en la industria, garantizando un servicio de calidad superior para cada uno de nuestros clientes.</p>
+</div>
+
+<div class="history-section">
+<h2>Historia de IDILSA</h2>
+
+<div class="timeline">
+<div class="year">1998</div>
+<div class="year">2005</div>
+<div class="year">2010</div>
+<div class="year">2020</div>
+</div>
+
+<div class="history-text">
+<p><strong>1998:</strong> Fundación de IDILSA. Iniciamos con el objetivo de ofrecer soluciones innovadoras en sistemas de lubricación industrial.</p>
+<p><strong>2005:</strong> Expansión al Bajío. Nuestra presencia en el Bajío marcó el comienzo de una expansión significativa a nivel nacional.</p>
+<p><strong>2010:</strong> Incorporación de nueva tecnología en sistemas de lubricación. Introdujimos tecnología avanzada para mejorar la eficiencia y calidad en nuestros productos.</p>
+<p><strong>2020:</strong> Premios de calidad. Recibimos varios premios nacionales e internacionales por la innovación y calidad de nuestros servicios.</p>
+</div>
+
+</div>
+
+<!-- SERVICIOS -->
+
+<div class="services-section">
+
+<h2>Servicios de IDILSA</h2>
+
+<div class="service-cards">
+
+<a class="service-card" href="https://idilsacomercializadoras.netlify.app/" target="_blank">
+<img src="comercializadora.jpeg">
+<h3>Comercializadora</h3>
+<p>Distribuimos productos de alta calidad para diversas industrias.</p>
+</a>
+
+<a class="service-card" href="https://maquinadosidilsa.netlify.app/" target="_blank">
+<img src="maquinados.jpeg">
+<h3>Maquinados</h3>
+<p>Diseño y fabricación de piezas precisas para tu maquinaria.</p>
+</a>
+
+<a class="service-card" href="https://sites.google.com/view/idilsa-incio-parte-2/p%C3%A1gina-principal" target="_blank">
+<img src="lubricacíon.jpeg">
+<h3>Lubricación</h3>
+<p>Instalación y mantenimiento de sistemas de lubricación eficientes.</p>
+</a>
+
+</div>
+</div>
+
+<!-- RECONOCIMIENTOS -->
+
+<div class="recognitions-section">
+
+<h2>Reconocimientos y Premios</h2>
+
+<div class="recognitions-gallery">
+
+<div class="recognition-card">
+<img src="2020 (1).jpg" class="modal-img">
+</div>
+
+<div class="recognition-card">
+<img src="Captura-de-pantalla--964- (2).png" class="modal-img">
+</div>
+
+</div>
+</div>
+
+<!-- CONTACTO -->
+
+<div class="contact-section">
+
+<h2>Contacto</h2>
+
+<div class="contact-info">
+
+<p><strong>Oficina:</strong> 55-51144840</p>
+
+<p><strong>Bajío:</strong> 47-26881722</p>
+
+<p><strong>Correo:</strong>  
+<a href="mailto:ventas@idilsa.com">ventas@idilsa.com</a>,  
+<a href="mailto:ventasbajio@idilsa.com">ventasbajio@idilsa.com</a>
+</p>
+
+<p><strong>Dirección:</strong> Convento de San Agustin 6, Col Jardines de Santa Monica, Aguascalientes.</p>
+
+</div>
+</div>
+
+</div>
+
+<!-- MODAL -->
+
 <div class="modal" id="modal">
-    <span class="modal-close" id="modal-close">&times;</span>
-    <img id="modal-img" src="" alt="Imagen ampliada">
+<span class="modal-close" id="modal-close">&times;</span>
+<img id="modal-img">
 </div>
 
 <script>
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modal-img');
-    const modalClose = document.getElementById('modal-close');
 
-    document.querySelectorAll('.modal-img').forEach(img => {
-        img.addEventListener('click', () => {
-            modal.style.display = 'flex';
-            modalImg.src = img.src;
-        });
-    });
+const modal=document.getElementById("modal");
+const modalImg=document.getElementById("modal-img");
+const modalClose=document.getElementById("modal-close");
 
-    modalClose.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
+document.querySelectorAll(".modal-img").forEach(img=>{
+img.onclick=()=>{
+modal.style.display="flex";
+modalImg.src=img.src;
+}
+});
 
-    modal.addEventListener('click', e => {
-        if(e.target === modal) modal.style.display = 'none';
-    });
+modalClose.onclick=()=>{
+modal.style.display="none";
+}
+
+modal.onclick=e=>{
+if(e.target===modal){
+modal.style.display="none";
+}
+}
+
 </script>
 
 </body>
 </html>
-
